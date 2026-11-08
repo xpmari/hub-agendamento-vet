@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Dra. Helena Martins | Medicina Veterinária Integrativa & Preventiva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-cream: #FAF7F2;
+      --bg-card: rgba(255, 255, 255, 0.88);
+      --sage-primary: #3A5A40;
+      --sage-light: #E8F0E8;
+      --sage-accent: #588157;
+      --terracotta: #D48C70;
+      --butter-soft: #FFF5D6;
+      --text-dark: #1F2921;
+      --text-muted: #5C6B5E;
+      --border-soft: rgba(58, 90, 64, 0.12);
+      --shadow-sm: 0 4px 20px rgba(31, 41, 33, 0.05);
+      --shadow-md: 0 10px 30px rgba(58, 90, 64, 0.09);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-cream);
+      background-image: 
+        radial-gradient(at 10% 10%, rgba(232, 240, 232, 0.8) 0px, transparent 50%),
+        radial-gradient(at 90% 30%, rgba(255, 245, 214, 0.6) 0px, transparent 50%);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding-bottom: calc(120px + env(safe-area-inset-bottom, 0px));
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    /* SCROLL REVEAL (FALLBACK SEGURO: SÓ ANIMA SE O JS ESTIVER ATIVO) */
+    .js-enabled .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
+                  transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .js-enabled .reveal-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 28px 22px 32px;
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 24px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 116px;
+      height: 116px;
+      margin: 0 auto 16px;
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--sage-light);
+      color: var(--sage-primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 14px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #2E7D32;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.25); opacity: 0.65; }
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .crmv-tag {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .hero p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    /* BUTTONS */
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: var(--sage-primary);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.98rem;
+      padding: 15px 24px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 6px 18px rgba(58, 90, 64, 0.22);
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-primary:hover {
+      background: var(--sage-accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--sage-primary);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 16px;
+    }
+
+    /* SECTIONS */
+    section {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* TRIAGEM INTERATIVA PET */
+    .triage-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .chips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .chip {
+      background: #fff;
+      border: 1.5px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 11px 12px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      font-family: inherit;
+    }
+
+    .chip.active {
+      background: var(--sage-light);
+      border-color: var(--sage-primary);
+      color: var(--sage-primary);
+    }
+
+    /* SOBRE & TAGS */
+    .about-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .specialties-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .specialties-list li {
+      background: var(--butter-soft);
+      color: #6E581F;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 13px;
+      border-radius: var(--radius-pill);
+    }
+
+    /* COMO FUNCIONA */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .step-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: #fff;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
+    }
+
+    .step-number {
+      min-width: 32px;
+      height: 32px;
+      background: var(--sage-light);
+      color: var(--sage-primary);
+      font-weight: 700;
+      font-size: 0.88rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-info h3 {
+      font-size: 0.95rem;
+      margin-bottom: 3px;
+    }
+
+    .step-info p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    /* ATENDIMENTO */
+    .location-box {
+      background: #fff;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
+      margin-bottom: 14px;
+    }
+
+    .location-box p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .location-box strong {
+      color: var(--text-dark);
+    }
+
+    .links-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .btn-outline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--sage-primary);
+      color: var(--sage-primary);
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--sage-light);
+    }
+
+    /* MATERIAIS */
+    .material-card {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      background: #fff;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .material-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .material-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: var(--sage-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .material-content h3 {
+      font-size: 0.94rem;
+      margin-bottom: 4px;
+    }
+
+    .material-content p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .material-link {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--terracotta);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-family: inherit;
+    }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid var(--border-soft);
+      padding: 12px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      padding: 4px 0;
+    }
+
+    .faq-answer {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+      padding-top: 8px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 28px;
+    }
+
+    footer a {
+      color: var(--sage-primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* POP-UP DE ROLAGEM (TOAST DE ATENDIMENTO DOMICILIAR) */
+    .scroll-toast {
+      position: fixed;
+      bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      width: calc(100% - 32px);
+      max-width: 480px;
+      background: #ffffff;
+      border: 1.5px solid rgba(58, 90, 64, 0.22);
+      border-radius: 18px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 14px 34px rgba(31, 41, 33, 0.16);
+      z-index: 98;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .scroll-toast.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--sage-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .toast-body {
+      flex: 1;
+    }
+
+    .toast-body strong {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      line-height: 1.25;
+    }
+
+    .toast-body span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .toast-action {
+      background: var(--sage-primary);
+      color: #fff;
+      border: none;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 8px 13px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+
+    .toast-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 2px 6px;
+      line-height: 1;
+    }
+
+    /* BARRA FIXA WHATSAPP */
+    .floating-bar {
+      position: fixed;
+      bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 480px;
+      background: rgba(31, 41, 33, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 10px 12px 10px 18px;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+      z-index: 99;
+    }
+
+    .floating-bar span {
+      color: #fff;
+      font-size: 0.84rem;
+      font-weight: 500;
+    }
+
+    .floating-btn {
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* MODAL POP-UP CENTRAL (GUIA GRATUITO) */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(31, 41, 33, 0.6);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 200;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      background: #fff;
+      width: 100%;
+      max-width: 420px;
+      border-radius: var(--radius-lg);
+      padding: 26px 22px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      transform: translateY(20px) scale(0.96);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      position: relative;
+      text-align: center;
+    }
+
+    .modal-overlay.open .modal-box {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--bg-cream);
+      border: none;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .modal-badge {
+      display: inline-block;
+      background: var(--butter-soft);
+      color: #6E581F;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 12px;
+    }
+
+    .modal-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
+
+    .modal-box p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .modal-checklist {
+      text-align: left;
+      background: var(--bg-cream);
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      list-style: none;
+      font-size: 0.84rem;
+      color: var(--text-dark);
+    }
+
+    .modal-checklist li {
+      margin-bottom: 6px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .js-enabled .reveal-on-scroll { opacity: 1; transform: none; transition: none; }
+      .status-dot { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="avatar-wrapper">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" alt="Dra. Helena Martins" class="avatar" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 120%22%3E%3Crect width=%22120%22 height=%22120%22 fill=%22%23E8F0E8%22/%3E%3Cg fill=%22%233A5A40%22%3E%3Cellipse cx=%2260%22 cy=%2274%22 rx=%2222%22 ry=%2218%22/%3E%3Cellipse cx=%2234%22 cy=%2252%22 rx=%228%22 ry=%2211%22/%3E%3Cellipse cx=%2250%22 cy=%2238%22 rx=%228%22 ry=%2211%22/%3E%3Cellipse cx=%2270%22 cy=%2238%22 rx=%228%22 ry=%2211%22/%3E%3Cellipse cx=%2286%22 cy=%2252%22 rx=%228%22 ry=%2211%22/%3E%3C/g%3E%3C/svg%3E'">
+      </div>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        Agenda aberta — Consultório & Domiciliar
+      </div>
+      <h1>Dra. Helena Martins</h1>
+      <span class="crmv-tag">Médica Veterinária • CRMV-DF 0000</span>
+      <p>Cuidado veterinário sem estresse, focado em longevidade, nutrição e prevenção para cães e gatos.</p>
+      
+      <a href="#triagem" class="btn-primary">Agendar consulta para meu pet</a>
+      <a href="#metodo" class="btn-secondary">Ver como funciona o atendimento ↓</a>
+    </div>
+
+    <!-- TRIAGEM RÁPIDA -->
+    <section id="triagem" class="reveal-on-scroll">
+      <h2>🐾 Pré-agendamento Rápido</h2>
+      <p class="about-text">Selecione abaixo para iniciar o atendimento no WhatsApp com as informações do seu pet:</p>
+
+      <span class="triage-label">1. Qual é o seu pet?</span>
+      <div class="chips-grid" id="pet-species">
+        <button type="button" class="chip active" data-value="Cachorro">🐶 Cachorro</button>
+        <button type="button" class="chip" data-value="Gato">🐱 Gato</button>
+      </div>
+
+      <span class="triage-label">2. O que você procura hoje?</span>
+      <div class="chips-grid" id="pet-reason">
+        <button type="button" class="chip active" data-value="Consulta / Check-up">🩺 Check-up Geral</button>
+        <button type="button" class="chip" data-value="Protocolo de Vacinação">💉 Vacinação</button>
+        <button type="button" class="chip" data-value="Plano Nutricional">🥣 Nutrição Pet</button>
+        <button type="button" class="chip" data-value="Atendimento em Casa">🏠 Consulta em Casa</button>
+      </div>
+
+      <button type="button" id="whatsapp-triage-btn" class="btn-primary">
+        Continuar agendamento no WhatsApp
+      </button>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="reveal-on-scroll">
+      <h2>Sobre</h2>
+      <p class="about-text">
+        Acredito em uma medicina veterinária acolhedora, onde cada consulta tem tempo de qualidade para entender a rotina da família, o comportamento do animal e prevenir doenças antes que elas apareçam.
+      </p>
+      <ul class="specialties-list">
+        <li>✨ Manejo Cat & Dog Friendly</li>
+        <li>🥗 Nutrição Natural & Clínica</li>
+        <li>🛡️ Vacinação Individualizada</li>
+        <li>🤍 Acompanhamento Sênior</li>
+      </ul>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="metodo" class="reveal-on-scroll">
+      <h2>Como funciona a consulta</h2>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-info">
+            <h3>Avaliação Completa e Sem Pressa</h3>
+            <p>Consulta de 1 hora com exame físico detalhado, análise de histórico, rotina alimentar e comportamento.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-info">
+            <h3>Plano Preventivo ou Terapêutico</h3>
+            <p>Definição clara de exames, ajuste de dieta, suplementação e calendário vacinal sob medida.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-info">
+            <h3>Suporte Pós-Consulta</h3>
+            <p>Acompanhamento próximo pelo WhatsApp para tirar dúvidas sobre medicações e evolução do pet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATENDIMENTO -->
+    <section class="reveal-on-scroll">
+      <h2>Atendimento</h2>
+      <div class="location-box">
+        <p>📍 <strong>Consultório:</strong> Asa Sul / Sudoeste — Brasília, DF</p>
+        <p>🚗 <strong>Domiciliar:</strong> Atendimento em casa para reduzir o estresse do seu pet</p>
+        <p>⏰ <strong>Horários:</strong> Seg a Sex (8h às 19h) • Sáb (8h às 13h)</p>
+      </div>
+      <div class="links-row">
+        <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-outline">📍 Ver no mapa</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="btn-outline">📸 Instagram</a>
+      </div>
+    </section>
+
+    <!-- MATERIAIS -->
+    <section class="reveal-on-scroll">
+      <h2>Materiais para Tutores</h2>
+      <div class="material-card" id="open-material-modal">
+        <div class="material-icon">📘</div>
+        <div class="material-content">
+          <h3>Guia de Primeiros Socorros & Prevenção</h3>
+          <p>Checklist essencial de vacinas, vermífugos e sinais de alerta em cães e gatos.</p>
+          <button type="button" class="material-link">Abrir prévia do guia gratuito →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DÚVIDAS FREQUENTES -->
+    <section class="reveal-on-scroll">
+      <h2>Dúvidas frequentes</h2>
+      
+      <div class="faq-item open">
+        <button type="button" class="faq-question" aria-expanded="true">
+          <span>Como funciona a consulta em domicílio?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Levo todos os equipamentos necessários para avaliação clínica completa, coleta de exames e aplicação de vacinas no conforto da sua casa, ideal para gatos ou cães ansiosos.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>A consulta inclui retorno?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Sim! O atendimento inclui retorno em até 20 dias para reavaliação e leitura de exames solicitados na primeira consulta.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>Quais são as formas de pagamento?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Aceitamos PIX, cartões de crédito com parcelamento e emitimos documentação completa para reembolso de planos de saúde pet.
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="reveal-on-scroll" style="text-align: center;">
+      <h2 style="justify-content: center;">Vamos cuidar do seu pet?</h2>
+      <p class="about-text">Envie uma mensagem e escolha o melhor horário para a rotina de vocês.</p>
+      <button type="button" id="bottom-wa-btn" class="btn-primary">Agendar consulta agora</button>
+    </section>
+
+    <footer>
+      Desenvolvido por <a href="https://instagram.com/marisabatier.co" target="_blank" rel="noopener">@marisabatier.co</a>
+    </footer>
+  </div>
+
+  <!-- POP-UP FLUTUANTE DE ROLAGEM (APARECE AO ROLAR A PÁGINA) -->
+  <div class="scroll-toast" id="scroll-toast">
+    <div class="toast-icon">🏠</div>
+    <div class="toast-body">
+      <strong>Seu pet fica estressado ao sair?</strong>
+      <span>Atendimento e vacinas também em casa.</span>
+    </div>
+    <button type="button" class="toast-action" id="toast-wa-btn">Consultar</button>
+    <button type="button" class="toast-close" id="toast-close-btn" aria-label="Fechar">×</button>
+  </div>
+
+  <!-- BARRA FIXA WHATSAPP -->
+  <div class="floating-bar">
+    <span>Dúvidas ou agendamento rápido?</span>
+    <button type="button" id="floating-wa-btn" class="floating-btn">Chamar no WhatsApp</button>
+  </div>
+
+  <!-- MODAL POP-UP DO MATERIAL GRATUITO -->
+  <div class="modal-overlay" id="material-modal">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="close-modal-btn">×</button>
+      <span class="modal-badge">📘 Material Gratuito</span>
+      <h3>Guia de Prevenção Pet</h3>
+      <p>Receba gratuitamente no seu WhatsApp o checklist completo preparado pela Dra. Helena:</p>
+      <ul class="modal-checklist">
+        <li>✅ Calendário anual de vacinas e exames</li>
+        <li>✅ Sinais silenciosos de dor em cães e gatos</li>
+        <li>✅ Alimentos proibidos e tóxicos na rotina</li>
+      </ul>
+      <button type="button" id="modal-wa-btn" class="btn-primary">
+        Receber guia no meu WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Ativa classe JS para garantir que o conteúdo nunca fique invisível caso o navegador bloqueie scripts no preview
+    document.body.classList.add('js-enabled');
+
+    const WHATSAPP_NUMBER = "5561999999999"; // Trocar pelo número da veterinária
+
+    let selectedSpecies = "Cachorro";
+    let selectedReason = "Consulta / Check-up";
+
+    function setupChips(containerId, callback) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      const buttons = container.querySelectorAll('.chip');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          callback(btn.dataset.value);
+        });
+      });
+    }
+
+    setupChips('pet-species', (val) => selectedSpecies = val);
+    setupChips('pet-reason', (val) => selectedReason = val);
+
+    function openWhatsApp(customText) {
+      const text = customText || `Olá, Dra.! Tenho um *${selectedSpecies}* e gostaria de agendar: *${selectedReason}*. Como está a disponibilidade de horários?`;
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+    }
+
+    document.getElementById('whatsapp-triage-btn').addEventListener('click', () => openWhatsApp());
+    document.getElementById('bottom-wa-btn').addEventListener('click', () => openWhatsApp());
+    document.getElementById('floating-wa-btn').addEventListener('click', () => {
+      openWhatsApp("Olá, Dra.! Vim pelo link da bio e gostaria de saber mais sobre o agendamento de consulta.");
+    });
+
+    // Accordion FAQ
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        item.classList.toggle('open');
+        btn.setAttribute('aria-expanded', item.classList.contains('open'));
+      });
+    });
+
+    // Animação dos cards ao rolar a página
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.08 });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+      revealElements.forEach(el => el.classList.add('visible'));
+    }
+
+    // Pop-up Toast ao rolar a página
+    const scrollToast = document.getElementById('scroll-toast');
+    let toastDismissed = false;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 320 && !toastDismissed) {
+        scrollToast.classList.add('active');
+      }
+    });
+
+    document.getElementById('toast-close-btn').addEventListener('click', () => {
+      toastDismissed = true;
+      scrollToast.classList.remove('active');
+    });
+
+    document.getElementById('toast-wa-btn').addEventListener('click', () => {
+      openWhatsApp("Olá, Dra.! Vi no site que você realiza atendimento em domicílio e gostaria de saber como funciona para o meu pet.");
+    });
+
+    // Modal Pop-up do Guia Gratuito
+    const materialModal = document.getElementById('material-modal');
+    document.getElementById('open-material-modal').addEventListener('click', () => {
+      materialModal.classList.add('open');
+    });
+    document.getElementById('close-modal-btn').addEventListener('click', () => {
+      materialModal.classList.remove('open');
+    });
+    materialModal.addEventListener('click', (e) => {
+      if (e.target === materialModal) materialModal.classList.remove('open');
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') materialModal.classList.remove('open');
+    });
+    document.getElementById('modal-wa-btn').addEventListener('click', () => {
+      materialModal.classList.remove('open');
+      openWhatsApp("Olá, Dra.! Gostaria de receber o *Guia Gratuito de Primeiros Socorros & Prevenção Pet* que vi no seu site.");
+    });
+  </script>
+</body>
+</html>
